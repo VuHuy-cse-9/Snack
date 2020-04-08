@@ -1,4 +1,5 @@
 #include<iostream>
+#include"Object.h"
 
 //Control board:
 //Upward: w (default)
@@ -10,10 +11,10 @@ private:
     bool isLost;
     char control;
 public:
-    Game() : isLost(false), control('w'){};
+    Game();
     void setControl(char key);
     char getControl();
     bool endGame();
-    void creatGame();
+    void creatGame(const Object& object);
     void startGame();
 };

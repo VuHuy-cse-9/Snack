@@ -1,5 +1,10 @@
 #include "Game.h"
 
+Game::Game() {
+    this->isLost = false;
+    this->control = 'w';
+}
+
 void Game::setControl(char key) {
     this->control = key;
 }
@@ -15,7 +20,7 @@ bool Game::endGame() {
     return false;
 }
 
-void Game::creatGame() {
+void Game::creatGame(const Object& object) {
     //TODO:Creat Components
 }
 
