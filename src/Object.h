@@ -10,4 +10,5 @@ private:
     vector<char> object;
 public:
     Object();
+    vector<char> getObject();
 };
