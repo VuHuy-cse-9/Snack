@@ -1,20 +1,19 @@
+#ifndef GAME_H
+#define GAME_H
 #include<iostream>
-#include"Object.h"
+#include "Object.h"
+#include<fstream>
 
-//Control board:
-//Upward: w (default)
-//Downward: s
-//Left: a
-//Right d
 class Game {
 private:
     bool isLost;
-    char control;
+    int numberOfObjects;
+    Object* object;
 public:
-    Game();
-    void setControl(char key);
-    char getControl();
+    Game(int _numberOfObjects);
     bool endGame();
-    void creatGame(const Object& object);
+    void creatObject(ifstream& file);
     void startGame();
 };
+
+#endif

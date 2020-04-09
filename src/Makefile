@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp Object.*
+	g++ main.cpp Object.h Object.cpp
