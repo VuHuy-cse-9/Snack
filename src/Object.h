@@ -12,12 +12,15 @@ private:
     //Location, size, effect
     int location[2];
     int size[2];
+    char shape;
 public:
     Object();
     int* getLocation();
     void setLocation(int x, int y);
     void setSize(int height, int width);
     int* getSize();
+    void custom(char shape);
+    char getShape();
 };
 
 #endif

@@ -7,6 +7,6 @@ using namespace std;
 int main() {
     ifstream file;
     file.open("data.txt");
-    Game game = Game(3);
-    game.creatObject(file);
+    Game game = Game();
+    game.creatObject(file, 3);
 }

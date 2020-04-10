@@ -7,10 +7,9 @@
 class Game {
 private:
     bool isLost;
-    int numberOfObjects;
     Object* object;
 public:
-    Game(int _numberOfObjects);
+    Game();
     bool endGame();
     void creatObject(ifstream& file);
     void startGame();

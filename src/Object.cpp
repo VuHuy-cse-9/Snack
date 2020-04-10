@@ -8,7 +8,7 @@ Object::Object() {
 }
 
 int* Object::getLocation() {
-    this->location;
+    return this->location;
 }
 
 int* Object::getSize() {
@@ -21,6 +21,14 @@ void Object::setLocation(int x, int y) {
 }
 
 void Object::setSize(int height, int width) {
-    this->size[0] = height;
-    this->size[1] = width;
+    this->size[0] = width;
+    this->size[1] = height;
+}
+
+void Object::custom(char _shape){
+    this->custom = _shape;
+}
+
+char Object::getShape() {
+    return this->shape;
 }
