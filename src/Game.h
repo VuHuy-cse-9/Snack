@@ -2,12 +2,13 @@
 #define GAME_H
 #include<iostream>
 #include "Object.h"
+#include "Map.h"
 #include<fstream>
 
 class Game {
 private:
     bool isLost;
-    Object* object;
+    Map* object;
 public:
     Game();
     bool endGame();

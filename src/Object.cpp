@@ -1,10 +1,10 @@
 #include "Object.h"
 
-Object::Object() {
-    this->location[0] = 0;
-    this->location[1] = 0;
-    this->size[0] = 1;
-    this->size[1] = 1;
+Object::Object(int x, int y, int height, int width) {
+    this->location[0] = x;
+    this->location[1] = y;
+    this->size[0] = width;
+    this->size[1] = height;
 }
 
 int* Object::getLocation() {
@@ -25,8 +25,8 @@ void Object::setSize(int height, int width) {
     this->size[1] = height;
 }
 
-void Object::custom(char _shape){
-    this->custom = _shape;
+void Object::customObject(char _shape){
+    this->shape = _shape;
 }
 
 char Object::getShape() {

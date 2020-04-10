@@ -9,8 +9,10 @@ class Map : public Object{
 private:
     char** map;
 public:
-    Map();
+    Map(int x, int y, int width, int height);
     void setObjectLocation(Object& object);
+    void assignObjectOnMap(Object& object);
+    void printMap();
 };
 
 #endif
