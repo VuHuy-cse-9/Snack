@@ -9,7 +9,7 @@ class Map : public Object{
 private:
     char** map;
 public:
-    Map(int x, int y, int width, int height);
+    Map(int x, int y, int width, int height, char custom);
     void setObjectLocation(Object& object);
     void assignObjectOnMap(Object& object);
     void printMap();

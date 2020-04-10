@@ -13,7 +13,7 @@ private:    //Location, size, effect
     int size[2];
     char shape;
 public:
-    Object(int x, int y, int height, int width); //Assign
+    Object(int x, int y, int width, int hieght, char custom); //Assign
     int* getLocation();
     void setLocation(int x, int y);
     void setSize(int height, int width);

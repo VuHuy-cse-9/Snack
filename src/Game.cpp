@@ -2,13 +2,14 @@
 
 enum ObjectName {
     MAP,
-    // SNACK,
+    SNACK,
     // CANDY,
     NUMBEROFOBJECTS
 };
 
 Game::Game() {
     this->object = NULL;
+    this->snack = NULL;
     this->isLost = false;
 }
 
@@ -38,8 +39,9 @@ void Game::creatObject(ifstream& file) {
 
     for (int i = 0; i < NUMBEROFOBJECTS; i++) {
         file >> x >> y >> height >> width >> custom;
-        //this->object[i].setLocation(x, y);
-        this->object = new Map(x, y, width, height);
+        if (i == 0) this->object = new Map(x, y, width, height, custom);
+        //if (i == 1) this->snack = new Snack(x, y, width, height, custom);
     }
+    //(*object).setObjectLocation(*snack);
     (*object).printMap();
 }

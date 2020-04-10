@@ -10,11 +10,16 @@ enum Location {
     Y
 };
 
-Map::Map(int x, int y, int width, int height) : Object(x, y, width, height){
+Map::Map(int x, int y, int width, int height, char custom) : Object(x, y, width, height, custom){
     //Error:Can't take value from this
     this->map = new char*[this->getSize()[WIDTH]];
     for (int i = 0; i < this->getSize()[HEIGHT]; i++) {
         map[i] = new char[this->getSize()[WIDTH]];
+    }
+    for (int i = 0; i < this->getSize()[0]; i++) {
+        for (int j = 0; j < this->getSize()[1]; j++) {
+            map[i][j] = this->getShape();
+        }
     }
 }
 
