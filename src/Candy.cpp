@@ -1,5 +1,6 @@
-#include<Snack.h>
+#include "Candy.h"
 
-Snack::Snack() {
+Candy::Candy(int x, int y, int width, int height, char custom) : 
+Object(x, y, width, height, custom){
     
 }

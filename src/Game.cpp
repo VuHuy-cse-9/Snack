@@ -3,7 +3,7 @@
 enum ObjectName {
     MAP,
     SNACK,
-    // CANDY,
+    CANDY,
     NUMBEROFOBJECTS
 };
 
@@ -41,7 +41,9 @@ void Game::creatObject(ifstream& file) {
         file >> x >> y >> height >> width >> custom;
         if (i == 0) this->object = new Map(x, y, width, height, custom);
         if (i == 1) this->snack = new Snack(x, y, width, height, custom);
+        if (i == 2) this->candy = new Candy(x, y, width, height, custom);
     }
     (*object).setObjectLocation(*snack);
+    (*object).setObjectLocation(*candy);
     (*object).printMap();
 }
