@@ -29,13 +29,14 @@ void Map::setObjectLocation(Object& object) {
     if (object.getSize()[WIDTH] > 1) {
         if (object.getLocation()[X] + object.getSize()[WIDTH] -1 <= this->getSize()[WIDTH]);
             for (int i = 1; i < object.getLocation()[WIDTH]; i++) {
-                this->map[object.getLocation()[X + i]][object.getLocation()[Y]] = object.getShape();
+                this->map[object.getLocation()[X] + i][object.getLocation()[Y]] = object.getShape();
             }
     }
+    //TODO:Review when creat real object
      if (object.getSize()[HEIGHT] > 1) {
         if (object.getLocation()[X] + object.getSize()[HEIGHT] -1 <= this->getSize()[HEIGHT]);
             for (int i = 1; i < object.getLocation()[HEIGHT]; i++) {
-                this->map[object.getLocation()[X]][object.getLocation()[Y + i]] = object.getShape();
+                this->map[object.getLocation()[X]][object.getLocation()[Y] + i] = object.getShape();
             }
     }
 }

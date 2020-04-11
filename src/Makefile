@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp Object.h  Map.h Map.cpp Object.cpp Game.cpp Game.h
+	g++ -g main.cpp Object.h  Map.h Map.cpp Object.cpp Game.cpp Game.h Snack.h Snack.cpp
