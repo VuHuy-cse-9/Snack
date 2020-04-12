@@ -54,33 +54,47 @@ Node* Snack::getHead() {
     return this->head;
 }
 
-void Snack::setSnack(char _shape, int _x, int _y, int i = 0) {
+void Snack::setSnack(char _shape, int _x, int _y, Node* ptr) {
     //TODO:
+    if (ptr != nullptr) {
+        int shape = ptr->shape;
+        int x = ptr->x;
+        int y = ptr->y;
+        ptr->lastLocation[0] = x;
+        ptr->lastLocation[1] = y;
+        ptr->x = _x;
+        ptr->y = _y;
+        ptr->shape = _shape;
+        ptr = ptr->nextptr;
+        setSnack(shape, x, y, ptr);
+    }
+    
 }
 
 void Snack::move() {
+    Node* ptr = this->head;
     int x = this->getLocation()[X];
     int y = this->getLocation()[Y];
     switch (this->orient)
     {
         case FORWARD: {
-            this->setLocation(x, y + 1);
-            setSnack(this->getShape(), x, y + 1);
+            this->setLocation(x, y -1);
+            setSnack('^', x, y -1, ptr);
             break;
         }
         case BACKWARD: { 
-            this->setLocation(x, y - 1);
-            setSnack(this->getShape(), x, y- 1);
+            this->setLocation(x, y + 1);
+            setSnack('v', x, y + 1, ptr);
             break;
         }
         case LEFT: {
             this->setLocation(x - 1, y);
-            setSnack(this->getShape(), x - 1, y);
+            setSnack('<', x - 1, y, ptr);
             break;
         }
         case RIGHT: { 
             this->setLocation(x + 1, y);
-            setSnack(this->getShape(), x + 1, y);
+            setSnack('>', x + 1, y, ptr);
             break;
         } 
     }

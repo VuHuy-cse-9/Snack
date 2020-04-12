@@ -12,7 +12,7 @@
 class Game {
 private:
     bool isLost;
-    Map* object;
+    Map* map;
     Snack* snack;
     Candy* candy;
 public:

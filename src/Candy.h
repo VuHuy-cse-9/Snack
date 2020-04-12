@@ -1,3 +1,6 @@
+#ifndef CANDY_H
+#define CANDY_H
+
 #include<iostream>
 #include "Object.h"
 
@@ -7,3 +10,5 @@ class Candy : public Object{
 public:
     Candy(int x, int y, int height, int width, char custom);
 };
+
+#endif

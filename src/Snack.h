@@ -14,7 +14,7 @@ public:
     void setOrient(char _orient);
     char getOrient();
     void creatSnack(char _shape, int _x, int _y, int i);
-    void setSnack(char shape, int x, int y, int i);
+    void setSnack(char shape, int x, int y, Node* ptr);
     Node* getHead();
     void move();
 };

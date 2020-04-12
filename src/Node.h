@@ -4,6 +4,7 @@
 class Node {
 public:
     int x, y;
+    int lastLocation[2];
     char shape;
     Node* nextptr;
     Node();
