@@ -10,8 +10,16 @@ enum Location {
     Y
 };
 
+enum ArrowKey{
+    FORWARD,
+    BACKWARD,
+    LEFT,
+    RIGHT 
+};
+
 Map::Map(int x, int y, int width, int height, char custom) : Object(x, y, width, height, custom){
     //Error:Can't take value from this
+
     this->map = new char*[this->getSize()[WIDTH]];
     for (int i = 0; i < this->getSize()[HEIGHT]; i++) {
         map[i] = new char[this->getSize()[WIDTH]];
@@ -47,5 +55,13 @@ void Map::printMap() {
             cout << map[i][j] << " ";
         }
         cout << '\n';
+    }
+}
+
+void Map::assignSnack(const Node* ptr) {
+    if (ptr != nullptr) {
+        this->map[ptr->x][ptr->y] = ptr->shape;
+        ptr = ptr->nextptr;
+        assignSnack(ptr);
     }
 }

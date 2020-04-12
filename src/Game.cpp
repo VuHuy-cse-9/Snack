@@ -7,6 +7,11 @@ enum ObjectName {
     NUMBEROFOBJECTS
 };
 
+enum Size {
+    WIDTH,
+    HEIGHT
+};
+
 Game::Game() {
     this->object = NULL;
     this->snack = NULL;
@@ -21,10 +26,8 @@ bool Game::endGame() {
 }
 
 void Game::startGame(){
-    //Give keyboard for effect
-    while(!endGame()) {
-        
-    }
+    //TODO: 
+
 }
 
 void Game::creatObject(ifstream& file) {
@@ -38,12 +41,21 @@ void Game::creatObject(ifstream& file) {
     file.seekg(0, file.beg);
 
     for (int i = 0; i < NUMBEROFOBJECTS; i++) {
-        file >> x >> y >> height >> width >> custom;
+        file >> x >> y >> width >> height >> custom;
         if (i == 0) this->object = new Map(x, y, width, height, custom);
         if (i == 1) this->snack = new Snack(x, y, width, height, custom);
         if (i == 2) this->candy = new Candy(x, y, width, height, custom);
     }
-    (*object).setObjectLocation(*snack);
+    (*object).assignSnack(snack->getHead());
     (*object).setObjectLocation(*candy);
-    (*object).printMap();
+    (*object).printMap();   
 }
+
+// void Game::animation() {
+//     TODO:Just 1 "thin" snack
+//     for (int i = (*snack).getSize()[HEIGHT]; i > 1; i--) {
+//         this->map[WIDTH][i] = this->map[WIDTH][i - 1]; 
+//     }
+//     this->map[WIDTH][0] = this->map[WIDTH][0]
+    
+// }

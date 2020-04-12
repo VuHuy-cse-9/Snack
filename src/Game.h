@@ -5,6 +5,8 @@
 #include "Map.h"
 #include "Snack.h"
 #include "Candy.h"
+#include<ctime>
+#include <chrono>
 #include<fstream>
 
 class Game {
@@ -18,6 +20,7 @@ public:
     bool endGame();
     void creatObject(ifstream& file);
     void startGame();
+    void animation();
 };
 
 #endif
