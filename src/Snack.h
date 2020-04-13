@@ -17,4 +17,6 @@ public:
     void setSnack(char shape, int x, int y, Node* ptr);
     Node* getHead();
     void move();
+    void addTail();
+    bool isCollasp(Node* ptr);
 };

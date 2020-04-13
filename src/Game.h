@@ -6,21 +6,22 @@
 #include "Snack.h"
 #include "Candy.h"
 #include<ctime>
-#include <chrono>
+#include<chrono>
+#include<thread>
 #include<fstream>
 
 class Game {
 private:
-    bool isLost;
     Map* map;
     Snack* snack;
     Candy* candy;
 public:
     Game();
-    bool endGame();
     void creatObject(ifstream& file);
     void startGame();
     void animation();
+    bool gameCondition();
+    void pressKey();
 };
 
 #endif

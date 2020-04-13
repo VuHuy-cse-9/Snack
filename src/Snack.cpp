@@ -99,3 +99,46 @@ void Snack::move() {
         } 
     }
 }
+
+void Snack::addTail(){
+    tail->nextptr = new Node();
+    switch (tail->shape)
+    {
+        case '^': {
+            tail->nextptr->x = tail->x;
+            tail->nextptr->y = tail->y + 1;
+            tail->nextptr->shape = '^';
+        }
+            break;
+        case 'v': {
+            tail->nextptr->x = tail->x;
+            tail->nextptr->y = tail->y - 1;
+            tail->nextptr->shape = 'v';
+
+        }
+            break;
+        case '<': {
+            tail->nextptr->x = tail->x +1;
+            tail->nextptr->y = tail->y;
+            tail->nextptr->shape = '<';
+        }
+            break;
+        case '>': {
+            tail->nextptr->x = tail->x - 1;
+            tail->nextptr->y = tail->y;
+            tail->nextptr->shape = '>';
+        }
+            break;
+    }
+    tail = tail->nextptr;
+}   
+
+bool Snack::isCollasp(Node* ptr) {
+    if (ptr != nullptr) {
+        if (this->head->x == ptr->x && 
+        this->head->y == ptr->y) {
+            return true;
+        }
+    }
+    return false;
+}

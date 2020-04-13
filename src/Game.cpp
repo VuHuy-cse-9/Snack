@@ -22,21 +22,24 @@ enum ArrowKey{
 Game::Game() {
     this->map = NULL;
     this->snack = NULL;
-    this->isLost = false;
 }
 
-bool Game::endGame() {
-    if (this->isLost) { 
+bool Game::gameCondition() {
+    Node* ptr = snack->getHead()->nextptr;
+    if (
+    snack->getLocation()[0] >= map->getSize()[WIDTH] || 
+    snack->getLocation()[0] < 0 ||
+    snack->getLocation()[1] >= map->getSize()[HEIGHT] ||
+    snack->getLocation()[1] < 0 ||
+    snack->isCollasp(ptr)) {
         return true;
     }
     return false;
 }
 
-void Game::startGame(){
-    //TODO: 
+void Game::pressKey() {
     char key;
-    Node* ptr = snack->getHead();
-    while(!endGame()) {
+    while(true) {
         cin >> key;
         switch (key)
         {
@@ -49,11 +52,27 @@ void Game::startGame(){
             case 'd':this->snack->setOrient(RIGHT);
                 break;
         }
+    }
+}
+
+void Game::startGame(){
+    //TODO: 
+     Node* ptr = snack->getHead();
+     while(true) {
+        
+
         snack->move();
+        if (candy->isBeEaten(snack->getLocation()[0], snack->getLocation()[1])) {
+            map->assignCandy(*(this->candy));
+            snack->addTail();
+        }
+        if (gameCondition()) break;
+        map->assignCandy(*(this->candy));
         map->assignSnack(ptr);
         map->printMap();
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));    
     }
-
+    cout << '\n' << "<<<<<<<<<<END GAME>>>>>>>>>>>" << '\n';
 }
 
 void Game::creatObject(ifstream& file) {
@@ -76,14 +95,7 @@ void Game::creatObject(ifstream& file) {
     map->assignSnack(ptr);
     map->assignCandy(*candy);
     map->printMap();   
-    startGame();
+    thread th(&Game::startGame, this);
+    pressKey();
+    th.join();
 }
-
-// void Game::animation() {
-//     TODO:Just 1 "thin" snack
-//     for (int i = (*snack).getSize()[HEIGHT]; i > 1; i--) {
-//         this->map[WIDTH][i] = this->map[WIDTH][i - 1]; 
-//     }
-//     this->map[WIDTH][0] = this->map[WIDTH][0]
-    
-// }
